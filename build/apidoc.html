@@ -1,0 +1,256 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+    >homebridge-websocket (v0.1.12)</a>
+</h1>
+<h4>Websocket Plugin for Homebridge</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.homebridge-websocket">module homebridge-websocket</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.homebridge-websocket.homebridge-websocket">
+            function <span class="apidocSignatureSpan"></span>homebridge-websocket
+            <span class="apidocSignatureSpan">(homebridge)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">homebridge-websocket.</span>accessory</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">homebridge-websocket.</span>utils</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">homebridge-websocket.</span>websocket</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.homebridge-websocket.accessory">module homebridge-websocket.accessory</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.homebridge-websocket.accessory.Accessory">
+            function <span class="apidocSignatureSpan">homebridge-websocket.accessory.</span>Accessory
+            <span class="apidocSignatureSpan">(params)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.homebridge-websocket.utils">module homebridge-websocket.utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.homebridge-websocket.utils.Utils">
+            function <span class="apidocSignatureSpan">homebridge-websocket.utils.</span>Utils
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.homebridge-websocket.websocket">module homebridge-websocket.websocket</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.homebridge-websocket.websocket.Websocket">
+            function <span class="apidocSignatureSpan">homebridge-websocket.websocket.</span>Websocket
+            <span class="apidocSignatureSpan">(params)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.homebridge-websocket" id="apidoc.module.homebridge-websocket">module homebridge-websocket</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.homebridge-websocket.homebridge-websocket" id="apidoc.element.homebridge-websocket.homebridge-websocket">
+        function <span class="apidocSignatureSpan"></span>homebridge-websocket
+        <span class="apidocSignatureSpan">(homebridge)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">homebridge-websocket = function (homebridge) {
+  console.log(&#x22;homebridge API version: &#x22; + homebridge.version);
+
+  Accessory = homebridge.platformAccessory;
+
+  Service = homebridge.hap.Service;
+  Characteristic = homebridge.hap.Characteristic;
+  UUIDGen = homebridge.hap.uuid; // Universally Unique IDentifier
+
+  storagePath = homebridge.user.storagePath();
+
+  homebridge.registerPlatform(plugin_name, platform_name, WebsocketPlatform, true);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.homebridge-websocket.accessory" id="apidoc.module.homebridge-websocket.accessory">module homebridge-websocket.accessory</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.homebridge-websocket.accessory.Accessory" id="apidoc.element.homebridge-websocket.accessory.Accessory">
+        function <span class="apidocSignatureSpan">homebridge-websocket.accessory.</span>Accessory
+        <span class="apidocSignatureSpan">(params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Accessory(params) {
+
+  this.accessoryDef = params.accessoryDef;
+  this.log = params.log;
+  Service = params.Service;
+  Characteristic = params.Characteristic;
+  Websocket = params.Websocket;
+
+  this.name = this.accessoryDef.name;
+  this.service_name = this.accessoryDef.service;
+
+  this.i_value = {};
+  this.i_label = {};
+  this.i_props = {};
+
+  this.service;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.homebridge-websocket.utils" id="apidoc.module.homebridge-websocket.utils">module homebridge-websocket.utils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.homebridge-websocket.utils.Utils" id="apidoc.element.homebridge-websocket.utils.Utils">
+        function <span class="apidocSignatureSpan">homebridge-websocket.utils.</span>Utils
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Utils() {
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.homebridge-websocket.websocket" id="apidoc.module.homebridge-websocket.websocket">module homebridge-websocket.websocket</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.homebridge-websocket.websocket.Websocket" id="apidoc.element.homebridge-websocket.websocket.Websocket">
+        function <span class="apidocSignatureSpan">homebridge-websocket.websocket.</span>Websocket
+        <span class="apidocSignatureSpan">(params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Websocket(params) {
+
+  this.log = params.log;
+  port = params.port;
+  plugin_name = params.plugin_name;
+  accessories = params.accessories;
+  Characteristic = params.Characteristic;
+  addAccessory = params.addAccessory;
+  removeAccessory = params.removeAccessory;
+  getAccessories = params.getAccessories;
+
+  this.ws;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
